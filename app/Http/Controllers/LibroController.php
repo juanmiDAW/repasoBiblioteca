@@ -44,7 +44,7 @@ class LibroController extends Controller
      */
     public function show(Libro $libro)
     {
-        //
+        return view('libros.show', ['libro' => $libro]);
     }
 
     /**
