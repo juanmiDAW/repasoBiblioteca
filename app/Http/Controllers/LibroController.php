@@ -6,6 +6,8 @@ use App\Http\Requests\StoreLibroRequest;
 use App\Http\Requests\UpdateLibroRequest;
 use App\Models\Libro;
 
+use function PHPUnit\Framework\returnSelf;
+
 class LibroController extends Controller
 {
     /**
@@ -13,7 +15,7 @@ class LibroController extends Controller
      */
     public function index()
     {
-        //
+        return view('libros.index', ['libros' => Libro::all()]);
     }
 
     /**
@@ -21,7 +23,7 @@ class LibroController extends Controller
      */
     public function create()
     {
-        //
+        return view('libros.create');
     }
 
     /**
@@ -29,7 +31,12 @@ class LibroController extends Controller
      */
     public function store(StoreLibroRequest $request)
     {
-        //
+        $request->validated();
+        Libro::create([
+            'titulo' => $request->titulo,
+            'autor' => $request->autor,
+        ]);
+        return redirect()->route('libros.index');
     }
 
     /**
