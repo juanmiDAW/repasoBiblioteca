@@ -52,7 +52,7 @@ class LibroController extends Controller
      */
     public function edit(Libro $libro)
     {
-        //
+         return view('libros.edit', [ 'libro' => $libro]);
     }
 
     /**
@@ -60,7 +60,13 @@ class LibroController extends Controller
      */
     public function update(UpdateLibroRequest $request, Libro $libro)
     {
-        //
+        $validate = $request->validated();
+
+        $libro->fill($validate);
+
+        $libro->save();
+
+        return redirect()-> route('libros.index');
     }
 
     /**
