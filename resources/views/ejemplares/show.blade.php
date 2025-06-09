@@ -38,9 +38,6 @@
                             <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
                                 Estado prestamo
                             </dt>
-                            {{-- @php
-                                dd($ejemplar->prestamos);
-                            @endphp --}}
                             @foreach ($ejemplar->prestamos as $prestamo)
 
                         {{$prestamo->created_at}}
