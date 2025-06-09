@@ -57,11 +57,11 @@
                                                     Editar libro
                                                 </a>
                                             </td>
-                                    {{-- <td class="px-6 py-4">
-                                                <form method="POST" action="{{ route('alumnos.destroy', $libro) }}">
+                                    <td class="px-6 py-4">
+                                                <form method="POST" action="{{ route('libros.destroy', $libro) }}">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <a href="{{ route('alumnos.destroy', $alumnos) }}"
+                                                    <a href="{{ route('libros.destroy', $libro) }}"
                                                         class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800"
                                                         onclick="event.preventDefault(); if (confirm('¿Está seguro?')) this.closest('form').submit();">
                                                         Eliminar
@@ -69,7 +69,7 @@
                                                 </form>
                                             </td> 
                                         </tr>
-                                        --}}
+                                       
                                         @endforeach
                                 </tbody>
                             </table>
