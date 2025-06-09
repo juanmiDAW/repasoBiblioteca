@@ -31,21 +31,25 @@
                     <div>
                         <table>
                             <thead>
-                                <th>Ejemplar</th>
+                                <th class="p-6">Ejemplar</th>
                                 <th>Estado</th>
+                                <th>Fecha de prestamo</th>
                             </thead>
                             <tbody>
                                 @foreach ($libro->ejemplares as $ejemplar)
                                     <tr>
-                                        <td>{{ $ejemplar->id }}</td>
+                                        <td class="p-6 text-center">{{ $ejemplar->id }}</td>
                                         @if ($ejemplar->prestamos->isEmpty())
-                                            <td>Libre</td>
+                                            <td class="p-6 text-center">Libre</td>
+                                            <td class="p-6 text-center">-</td>
                                         @endif
                                         @foreach ($ejemplar->prestamos as $prestamo)
                                             @if ($prestamo->fecha_hora)
-                                                <td>Libre</td>
+                                                <td class="p-6 text-center">Libre</td>
+                                                <td class="p-6 text-center">-</td>
                                             @else
-                                                <td>Prestado</td>
+                                                <td class="p-6 text-center">Prestado</td>
+                                                <td class="p-6 text-center">{{$prestamo->created_at}}</td>
                                             @endif
                                         @endforeach
                                     </tr>
