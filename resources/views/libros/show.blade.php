@@ -32,13 +32,13 @@
                         <table>
                             <thead>
                                 <th class="p-6">Ejemplar</th>
-                                <th>Estado</th>
-                                <th>Fecha de prestamo</th>
+                                <th class="p-6">Estado</th>
+                                <th class="p-6">Fecha de prestamo</th>
                             </thead>
                             <tbody>
                                 @foreach ($libro->ejemplares as $ejemplar)
                                     <tr>
-                                        <td class="p-6 text-center">{{ $ejemplar->id }}</td>
+                                        <td class="p-6 text-center"><a href="{{route('ejemplares.show', $ejemplar->id)}}"> {{ $ejemplar->id }} </a></td>
                                         @if ($ejemplar->prestamos->isEmpty())
                                             <td class="p-6 text-center">Libre</td>
                                             <td class="p-6 text-center">-</td>
