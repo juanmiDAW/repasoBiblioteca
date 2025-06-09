@@ -43,7 +43,9 @@ class LibroController extends Controller
      * Display the specified resource.
      */
     public function show(Libro $libro)
+
     {
+        $libro = Libro::with('ejemplares.prestamos')->where('id', $libro->id)->first();
         return view('libros.show', ['libro' => $libro]);
     }
 
@@ -52,7 +54,7 @@ class LibroController extends Controller
      */
     public function edit(Libro $libro)
     {
-         return view('libros.edit', [ 'libro' => $libro]);
+        return view('libros.edit', ['libro' => $libro]);
     }
 
     /**
@@ -66,7 +68,7 @@ class LibroController extends Controller
 
         $libro->save();
 
-        return redirect()-> route('libros.index');
+        return redirect()->route('libros.index');
     }
 
     /**

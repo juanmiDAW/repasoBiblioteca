@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('ejemplar_id')->constrained('ejemplares');
             $table->foreignId('cliente_id')->constrained();
-            $table->timestamp('fecha_hora');
+            $table->timestamp('fecha_hora')->nullable();
             $table->timestamps();
         });
     }

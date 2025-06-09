@@ -27,6 +27,32 @@
                             </dd>
                         </div>
                     </dl>
+
+                    <div>
+                        <table>
+                            <thead>
+                                <th>Ejemplar</th>
+                                <th>Estado</th>
+                            </thead>
+                            <tbody>
+                                @foreach ($libro->ejemplares as $ejemplar)
+                                    <tr>
+                                        <td>{{ $ejemplar->id }}</td>
+                                        @if ($ejemplar->prestamos->isEmpty())
+                                            <td>Libre</td>
+                                        @endif
+                                        @foreach ($ejemplar->prestamos as $prestamo)
+                                            @if ($prestamo->fecha_hora)
+                                                <td>Libre</td>
+                                            @else
+                                                <td>Prestado</td>
+                                            @endif
+                                        @endforeach
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
